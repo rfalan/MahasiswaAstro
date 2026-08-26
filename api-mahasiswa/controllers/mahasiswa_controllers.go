@@ -4,10 +4,43 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"golang.org/x/crypto/bcrypt"
 
 	"api-mahasiswa/config"
 	"api-mahasiswa/models"
 )
+
+func ResetMahasiswaPassword(c *gin.Context) {
+	var input struct {
+		Password string `json:"password" binding:"required,min=6"`
+	}
+	if err := c.ShouldBindJSON(&input); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Password baru wajib diisi minimal 6 karakter"})
+		return
+	}
+
+	var mahasiswa models.Mahasiswa
+	if err := config.DB.First(&mahasiswa, c.Param("id")).Error; err != nil {
+		c.JSON(http.StatusNotFound, gin.H{"error": "Mahasiswa tidak ditemukan"})
+		return
+	}
+
+	var user models.User
+	if err := config.DB.Where("mahasiswa_id = ?", mahasiswa.ID).First(&user).Error; err != nil {
+		c.JSON(http.StatusNotFound, gin.H{"error": "Mahasiswa belum memiliki akun"})
+		return
+	}
+	hash, err := bcrypt.GenerateFromPassword([]byte(input.Password), bcrypt.DefaultCost)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Gagal mengamankan password baru"})
+		return
+	}
+	if err := config.DB.Model(&user).Update("password_hash", string(hash)).Error; err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Gagal memperbarui password"})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"message": "Password mahasiswa berhasil direset"})
+}
 
 // GET semua mahasiswa
 func GetMahasiswa(c *gin.Context) {

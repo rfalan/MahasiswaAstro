@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 
 	"api-mahasiswa/controllers"
+	"api-mahasiswa/middleware"
 )
 
 func SetupRoutes(router *gin.Engine) {
@@ -13,14 +14,32 @@ func SetupRoutes(router *gin.Engine) {
 			"message": "API berhasil berjalan",
 		})
 	})
+	router.POST("/login", controllers.Login)
+	router.POST("/register", controllers.Register)
+	router.POST("/register-mahasiswa", controllers.RegisterMahasiswa)
+	router.POST("/reset-admin-password", controllers.ResetAdminPassword)
 
-	router.GET("/mahasiswa", controllers.GetMahasiswa)
+	protected := router.Group("/")
+	protected.Use(middleware.AuthMiddleware())
+	protected.GET("me", controllers.GetMyProfile)
+	protected.GET("me/magang", controllers.GetMyMagang)
+	student := protected.Group("/")
+	student.Use(middleware.RequireRole("mahasiswa"))
+	student.POST("me/magang", controllers.CreateMyMagang)
 
-	router.GET("/mahasiswa/:id", controllers.GetMahasiswaByID)
+	admin := protected.Group("/")
+	admin.Use(middleware.RequireRole("admin"))
+	admin.GET("mahasiswa", controllers.GetMahasiswa)
 
-	router.POST("/mahasiswa", controllers.CreateMahasiswa)
+	admin.GET("mahasiswa/:id", controllers.GetMahasiswaByID)
 
-	router.PUT("/mahasiswa/:id", controllers.UpdateMahasiswa)
+	admin.POST("mahasiswa", controllers.CreateMahasiswa)
 
-	router.DELETE("/mahasiswa/:id", controllers.DeleteMahasiswa)
+	admin.PUT("mahasiswa/:id", controllers.UpdateMahasiswa)
+	admin.PUT("mahasiswa/:id/password", controllers.ResetMahasiswaPassword)
+
+	admin.DELETE("mahasiswa/:id", controllers.DeleteMahasiswa)
+	admin.GET("magang", controllers.ListMagang)
+	admin.POST("magang", controllers.CreateMagang)
+	admin.PUT("magang/:id", controllers.UpdateMagang)
 }
