@@ -1,1 +1,13 @@
-.auth-switch{display:block;width:100%;border:0;background:transparent;color:#1769e8;font:600 11px 'DM Sans';cursor:pointer;margin-top:18px}.auth-switch:hover{text-decoration:underline}
+.auth-switch {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: #1769e8;
+  font: 600 11px "DM Sans";
+  cursor: pointer;
+  margin-top: 18px;
+}
+.auth-switch:hover {
+  text-decoration: underline;
+}

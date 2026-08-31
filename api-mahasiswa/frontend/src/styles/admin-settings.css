@@ -1,1 +1,644 @@
-.settings-shell{min-height:100vh;background:linear-gradient(180deg,#f8fbff 0%,#f3f6fb 100%);color:#172033}.settings-topbar{height:73px;background:#ffffffd9;border-bottom:1px solid #e8eef6;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,70px);backdrop-filter:blur(14px)}.settings-back{border:0;background:transparent;color:#3974d2;font:600 12px 'DM Sans';cursor:pointer}.settings-path{font-size:11px;color:#a0aaba}.settings-path b{color:#27364d}.settings-content{max-width:1120px;margin:auto;padding:52px clamp(20px,5vw,70px)}.settings-heading{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:30px}.settings-heading h1{font:800 34px Manrope,sans-serif;letter-spacing:-1.5px;margin:0 0 8px}.settings-heading p:not(.eyebrow){font-size:13px;color:#8995a8;margin:0}.settings-status{display:flex;align-items:center;gap:7px;background:#eaf9f1;color:#269563;border-radius:20px;padding:8px 11px;font-size:10px;font-weight:700}.settings-status i,.system-row i{width:6px;height:6px;background:#42c78a;border-radius:50%;display:inline-block}.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}.settings-card{background:#ffffffdd;border:1px solid #e5edf7;border-radius:18px;padding:25px;box-shadow:0 16px 40px #31527c0a;backdrop-filter:blur(16px)}.profile-settings,.security-settings{grid-column:span 2}.settings-card-title{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px}.settings-card-title h2{font:800 18px Manrope,sans-serif;margin:0;letter-spacing:-.4px}.settings-avatar,.settings-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#eaf2ff;color:#1769e8;font-weight:800}.settings-icon{background:#fff4dc;color:#bd7b12;font-size:18px}.green-icon{background:#e5f8ef;color:#198754}.settings-profile-row{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:18px}.settings-profile-row small,.settings-profile-row strong{display:block}.settings-profile-row small{font-size:10px;color:#9aa6b7;margin-bottom:7px}.settings-profile-row strong{font-size:13px;color:#394961}.preference-row,.security-row{width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;border:0;background:transparent;text-align:left;padding:13px 0;border-bottom:1px solid #edf1f6;cursor:pointer}.preference-row:last-child{border-bottom:0}.preference-row b,.security-row b{display:block;color:#394961;font-size:12px}.preference-row small,.security-row small{display:block;color:#9aa6b7;font-size:10px;margin-top:5px}.toggle{width:38px;height:23px;border-radius:20px;background:#dce4ee;padding:3px;transition:.2s;flex:0 0 auto}.toggle em{display:block;width:17px;height:17px;border-radius:50%;background:#fff;box-shadow:0 2px 5px #17203325;transition:.2s}.toggle.on{background:#1769e8}.toggle.on em{transform:translateX(15px)}.security-row a{background:#edf4ff;color:#1769e8;border-radius:8px;padding:9px 11px;font-size:10px;font-weight:700;text-decoration:none;white-space:nowrap}.system-row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid #edf1f6;font-size:11px;color:#657389}.system-row:last-child{border-bottom:0}.system-row span{display:flex;align-items:center;gap:8px}.system-row b{color:#269563;font-size:10px}.settings-logout{display:block;margin:28px auto 0;border:0;background:transparent;color:#d35f58;font:600 11px 'DM Sans';cursor:pointer}.settings-logout:hover{text-decoration:underline}@media(max-width:700px){.settings-topbar{padding:0 18px}.settings-path{display:none}.settings-content{padding:34px 18px}.settings-heading{align-items:flex-start;gap:18px;flex-direction:column}.settings-heading h1{font-size:29px}.settings-grid{grid-template-columns:1fr}.profile-settings,.security-settings{grid-column:span 1}.settings-profile-row{grid-template-columns:1fr;gap:16px}}
+.settings-shell {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 92% 8%,
+      rgba(124, 111, 230, 0.12),
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at 8% 92%,
+      rgba(105, 157, 216, 0.10),
+      transparent 25%
+    ),
+    linear-gradient(
+      135deg,
+      #f8f6ff 0%,
+      #f5f9ff 52%,
+      #fbfcff 100%
+    );
+
+  color: #172033;
+}
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.settings-topbar {
+  height: 73px;
+
+  background: rgba(255, 255, 255, 0.86);
+  border-bottom: 1px solid #e7e4f5;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 clamp(20px, 5vw, 70px);
+
+  backdrop-filter: blur(16px);
+}
+
+/* Tombol kembali */
+
+.settings-back {
+  border: 0;
+  background: transparent;
+
+  color: #655bc1;
+
+  font: 700 12px "DM Sans";
+
+  cursor: pointer;
+
+  padding: 8px 10px;
+  border-radius: 8px;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.settings-back:hover {
+  background: #f0edff;
+  transform: translateX(-2px);
+}
+
+/* Breadcrumb */
+
+.settings-path {
+  font-size: 11px;
+  color: #9794aa;
+}
+
+.settings-path b {
+  color: #4a456b;
+}
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.settings-content {
+  max-width: 1120px;
+
+  margin: auto;
+
+  padding: 52px clamp(20px, 5vw, 70px);
+}
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.settings-heading {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-end;
+
+  margin-bottom: 30px;
+}
+
+.settings-heading h1 {
+  font: 800 34px Manrope, sans-serif;
+
+  letter-spacing: -1.5px;
+
+  margin: 0 0 8px;
+
+  color: #302d54;
+}
+
+.settings-heading p:not(.eyebrow) {
+  font-size: 13px;
+
+  color: #7f899e;
+
+  margin: 0;
+}
+
+.settings-heading .eyebrow {
+  color: #7569d8;
+}
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.settings-status {
+  display: flex;
+
+  align-items: center;
+  gap: 7px;
+
+  background: linear-gradient(
+    135deg,
+    #f0edff,
+    #edf7ff
+  );
+
+  color: #5c55b1;
+
+  border: 1px solid #e2def8;
+
+  border-radius: 20px;
+
+  padding: 8px 12px;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  box-shadow:
+    0 5px 15px rgba(96, 86, 184, 0.07);
+}
+
+.settings-status i,
+.system-row i {
+  width: 6px;
+  height: 6px;
+
+  background: #42c78a;
+
+  border-radius: 50%;
+
+  display: inline-block;
+}
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
+.settings-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
+}
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.settings-card {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(249, 247, 255, 0.96) 55%,
+      rgba(243, 249, 255, 0.96)
+    );
+
+  border: 1px solid #e5e1f5;
+
+  border-radius: 20px;
+
+  padding: 25px;
+
+  box-shadow:
+    0 16px 40px rgba(68, 68, 132, 0.07);
+
+  backdrop-filter: blur(16px);
+}
+
+/* Ornamen batik halus di sudut card */
+
+.settings-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 145px;
+  height: 145px;
+
+  right: -62px;
+  top: -62px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(117, 105, 216, 0.10);
+
+  box-shadow:
+    0 0 0 15px rgba(117, 105, 216, 0.025),
+    0 0 0 30px rgba(105, 157, 216, 0.025),
+    0 0 0 45px rgba(117, 105, 216, 0.018);
+
+  pointer-events: none;
+}
+
+/* Pastikan isi card berada di atas ornamen */
+
+.settings-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Card yang memanjang */
+
+.profile-settings,
+.security-settings {
+  grid-column: span 2;
+}
+
+/* =========================================================
+   CARD TITLE
+   ========================================================= */
+
+.settings-card-title {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-start;
+
+  margin-bottom: 22px;
+}
+
+.settings-card-title h2 {
+  font: 800 18px Manrope, sans-serif;
+
+  margin: 0;
+
+  letter-spacing: -0.4px;
+
+  color: #383558;
+}
+
+/* =========================================================
+   ICON / AVATAR
+   ========================================================= */
+
+.settings-avatar,
+.settings-icon {
+  display: grid;
+
+  place-items: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eeeaff,
+      #eaf5ff
+    );
+
+  color: #655bc1;
+
+  font-weight: 800;
+
+  border: 1px solid #e1ddf7;
+
+  box-shadow:
+    0 7px 16px rgba(94, 83, 181, 0.08);
+}
+
+.settings-icon {
+  background:
+    linear-gradient(
+      135deg,
+      #f1eeff,
+      #edf6ff
+    );
+
+  color: #6258ba;
+
+  font-size: 18px;
+}
+
+.green-icon {
+  background: #eaf9f2;
+
+  color: #269563;
+
+  border-color: #d9f1e5;
+}
+
+/* =========================================================
+   PROFILE
+   ========================================================= */
+
+.settings-profile-row {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1.4fr
+    1fr;
+
+  gap: 18px;
+}
+
+.settings-profile-row small,
+.settings-profile-row strong {
+  display: block;
+}
+
+.settings-profile-row small {
+  font-size: 10px;
+
+  color: #918cae;
+
+  margin-bottom: 7px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.4px;
+
+  text-transform: uppercase;
+}
+
+.settings-profile-row strong {
+  font-size: 13px;
+
+  color: #46536a;
+}
+
+/* =========================================================
+   PREFERENCE
+   ========================================================= */
+
+.preference-row,
+.security-row {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  border: 0;
+
+  background: transparent;
+
+  text-align: left;
+
+  padding: 14px 8px;
+
+  border-bottom: 1px solid #eceaf5;
+
+  cursor: pointer;
+
+  border-radius: 9px;
+
+  transition:
+    background 0.2s ease,
+    padding 0.2s ease;
+}
+
+.preference-row:hover,
+.security-row:hover {
+  background:
+    linear-gradient(
+      90deg,
+      #faf8ff,
+      #f5faff
+    );
+
+  padding-left: 12px;
+}
+
+.preference-row:last-child {
+  border-bottom: 0;
+}
+
+.preference-row b,
+.security-row b {
+  display: block;
+
+  color: #394961;
+
+  font-size: 12px;
+}
+
+.preference-row small,
+.security-row small {
+  display: block;
+
+  color: #929aae;
+
+  font-size: 10px;
+
+  margin-top: 5px;
+}
+
+/* =========================================================
+   TOGGLE
+   ========================================================= */
+
+.toggle {
+  width: 40px;
+  height: 24px;
+
+  border-radius: 20px;
+
+  background: #dfe5ee;
+
+  padding: 3px;
+
+  transition: 0.25s;
+
+  flex: 0 0 auto;
+}
+
+.toggle em {
+  display: block;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 2px 6px rgba(23, 32, 51, 0.18);
+
+  transition: 0.25s;
+}
+
+.toggle.on {
+  background:
+    linear-gradient(
+      135deg,
+      #7b68d8,
+      #699dd8
+    );
+
+  box-shadow:
+    0 5px 12px rgba(105, 100, 205, 0.18);
+}
+
+.toggle.on em {
+  transform: translateX(16px);
+}
+
+/* =========================================================
+   SECURITY LINK
+   ========================================================= */
+
+.security-row a {
+  background:
+    linear-gradient(
+      135deg,
+      #f0edff,
+      #edf6ff
+    );
+
+  color: #6258ba;
+
+  border: 1px solid #e2def8;
+
+  border-radius: 9px;
+
+  padding: 9px 11px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.security-row a:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 6px 15px rgba(98, 88, 186, 0.12);
+}
+
+/* =========================================================
+   SYSTEM STATUS
+   ========================================================= */
+
+.system-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 11px 0;
+
+  border-bottom: 1px solid #eceaf5;
+
+  font-size: 11px;
+
+  color: #657389;
+}
+
+.system-row:last-child {
+  border-bottom: 0;
+}
+
+.system-row span {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.system-row b {
+  color: #269563;
+
+  font-size: 10px;
+}
+
+/* =========================================================
+   LOGOUT
+   ========================================================= */
+
+.settings-logout {
+  display: block;
+
+  margin: 28px auto 0;
+
+  border: 1px solid transparent;
+
+  background: #fff3f2;
+
+  color: #d35f58;
+
+  border-radius: 9px;
+
+  padding: 9px 14px;
+
+  font: 600 11px "DM Sans";
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.settings-logout:hover {
+  background: #ffe9e7;
+
+  text-decoration: none;
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .settings-topbar {
+    padding: 0 18px;
+  }
+
+  .settings-path {
+    display: none;
+  }
+
+  .settings-content {
+    padding: 34px 18px;
+  }
+
+  .settings-heading {
+    align-items: flex-start;
+
+    gap: 18px;
+
+    flex-direction: column;
+  }
+
+  .settings-heading h1 {
+    font-size: 29px;
+  }
+
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-settings,
+  .security-settings {
+    grid-column: span 1;
+  }
+
+  .settings-profile-row {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+}
+```

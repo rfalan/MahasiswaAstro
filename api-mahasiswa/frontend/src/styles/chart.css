@@ -1,1 +1,32 @@
-.chart-wrap{width:100%;overflow-x:auto;margin-top:14px}.student-chart{display:block;width:100%;min-width:560px;height:260px}.chart-axis{stroke:#dfe6ef;stroke-width:1}.chart-bar{fill:#1769e8}.chart-bar-1{fill:#8862df}.chart-bar-2{fill:#ee9366}.chart-label{fill:#78869a;font:11px 'DM Sans',sans-serif}.chart-value{fill:#27364d;font:700 12px 'DM Sans',sans-serif}
+.chart-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 14px;
+}
+.student-chart {
+  display: block;
+  width: 100%;
+  min-width: 560px;
+  height: 260px;
+}
+.chart-axis {
+  stroke: #dfe6ef;
+  stroke-width: 1;
+}
+.chart-bar {
+  fill: #1769e8;
+}
+.chart-bar-1 {
+  fill: #8862df;
+}
+.chart-bar-2 {
+  fill: #ee9366;
+}
+.chart-label {
+  fill: #78869a;
+  font: 11px "DM Sans", sans-serif;
+}
+.chart-value {
+  fill: #27364d;
+  font: 700 12px "DM Sans", sans-serif;
+}

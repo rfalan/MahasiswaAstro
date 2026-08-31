@@ -1,1 +1,20 @@
-.account-types{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:4px 0 18px}.account-types button{border:1px solid #e0e6ee;background:#fff;color:#7b899b;border-radius:8px;padding:10px;font:600 11px 'DM Sans';cursor:pointer}.account-types button.selected{border-color:#1769e8;background:#edf4ff;color:#1769e8}
+.account-types {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 4px 0 18px;
+}
+.account-types button {
+  border: 1px solid #e0e6ee;
+  background: #fff;
+  color: #7b899b;
+  border-radius: 8px;
+  padding: 10px;
+  font: 600 11px "DM Sans";
+  cursor: pointer;
+}
+.account-types button.selected {
+  border-color: #1769e8;
+  background: #edf4ff;
+  color: #1769e8;
+}

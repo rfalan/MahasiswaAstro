@@ -1,1 +1,189 @@
-.student-sidebar-label{color:#8f9bad;font-size:11px;padding:13px 15px}.student-profile-page{max-width:920px}.profile-card{background:#fff;border:1px solid #edf0f5;border-radius:14px;padding:32px;display:flex;align-items:flex-start;gap:24px;box-shadow:0 5px 20px #1f385108}.profile-avatar{width:76px;height:76px;border-radius:22px;background:#dce9ff;color:#3e70cd;display:grid;place-items:center;font:800 30px Manrope,sans-serif}.profile-details{flex:1}.profile-details h2{font:800 24px Manrope,sans-serif;color:#1c2940;margin:16px 0 25px}.profile-fields{display:flex;gap:64px}.profile-fields small,.profile-fields strong{display:block}.profile-fields small{color:#9aa6b7;font-size:10px;margin-bottom:7px}.profile-fields strong{color:#394961;font-size:14px}@media(max-width:600px){.profile-card{padding:22px;flex-direction:column}.profile-fields{gap:24px;flex-wrap:wrap}}
+.student-profile-page {
+  max-width: 980px;
+}
+
+/* Label "Portal mahasiswa" di sidebar */
+.student-sidebar-label {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.15px;
+  line-height: 1.35;
+  padding: 14px 16px;
+  margin: 0 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.17),
+    rgba(255, 255, 255, 0.08)
+  );
+  box-shadow: 0 10px 24px rgba(49, 44, 112, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+/* ---------- Area konten mahasiswa ---------- */
+.app-shell:has(.student-sidebar-label) .content {
+  background: radial-gradient(
+      circle at 92% 8%,
+      rgba(124, 111, 230, 0.08),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 9% 92%,
+      rgba(111, 168, 220, 0.08),
+      transparent 23%
+    ),
+    linear-gradient(135deg, #f8f7ff 0%, #f7fbff 52%, #fbfcff 100%);
+}
+
+.app-shell:has(.student-sidebar-label) .topbar {
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom-color: #e9e7f7;
+  backdrop-filter: blur(14px);
+}
+
+.app-shell:has(.student-sidebar-label) .breadcrumb strong {
+  color: #4f4a78;
+}
+
+.app-shell:has(.student-sidebar-label) .intro h1 {
+  color: #302d54;
+  border-right-color: #7569d8;
+}
+
+.app-shell:has(.student-sidebar-label) .eyebrow {
+  color: #7569d8;
+}
+
+.app-shell:has(.student-sidebar-label) .subheading {
+  color: #7c879d;
+}
+
+/* ---------- Kartu profil (gradasi ungu - biru - putih) ---------- */
+.profile-card {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(
+      circle at 12% 15%,
+      rgba(255, 255, 255, 0.28),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 92% 88%,
+      rgba(255, 255, 255, 0.18),
+      transparent 40%
+    ),
+    linear-gradient(135deg, #6557b8 0%, #5d74c8 50%, #6d9bd3 100%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 22px;
+  padding: 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  box-shadow: 0 18px 44px rgba(58, 51, 122, 0.25);
+  color: #ffffff;
+}
+
+/* Motif batik tipis di pojok kartu profil */
+.profile-card::after {
+  content: "";
+  position: absolute;
+  width: 185px;
+  height: 185px;
+  right: -42px;
+  top: -55px;
+  opacity: 0.5;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.35' stroke-width='1.2'%3E%3Cellipse cx='48' cy='18' rx='13' ry='25'/%3E%3Cellipse cx='48' cy='78' rx='13' ry='25'/%3E%3Cellipse cx='18' cy='48' rx='25' ry='13'/%3E%3Cellipse cx='78' cy='48' rx='25' ry='13'/%3E%3Ccircle cx='48' cy='48' r='7'/%3E%3Ccircle cx='48' cy='48' r='17' stroke-opacity='.18'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 96px 96px;
+}
+
+.profile-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.profile-avatar {
+  width: 76px;
+  height: 76px;
+  flex: 0 0 76px;
+  border-radius: 23px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font: 800 30px Manrope, sans-serif;
+  box-shadow: 0 12px 25px rgba(41, 36, 105, 0.2);
+  backdrop-filter: blur(6px);
+}
+
+.profile-details {
+  flex: 1;
+}
+
+.profile-details h2 {
+  font: 800 24px Manrope, sans-serif;
+  color: #ffffff;
+  margin: 16px 0 25px;
+}
+
+.profile-fields {
+  display: flex;
+  gap: 56px;
+  flex-wrap: wrap;
+}
+
+.profile-fields small,
+.profile-fields strong {
+  display: block;
+}
+
+.profile-fields small {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.45px;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+
+.profile-fields strong {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+/* Badge status mahasiswa */
+.profile-card .status {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.profile-card .status i {
+  background: #ffffff;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 800px) {
+  .student-sidebar-label {
+    font-size: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile-card {
+    padding: 22px;
+    flex-direction: column;
+  }
+
+  .profile-fields {
+    gap: 24px;
+  }
+}
