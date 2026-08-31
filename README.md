@@ -4,6 +4,9 @@ Project ini merupakan aplikasi **Dashboard Magang Mahasiswa** yang digunakan unt
 
 Project ini dibuat menggunakan **Golang** untuk backend, **Astro + React** untuk frontend, dan **PostgreSQL** sebagai database.
 
+<img width="959" height="434" alt="Screenshot 2026-08-31 165427" src="https://github.com/user-attachments/assets/d9570454-68d3-4175-9edc-55c1446038ec" />
+
+
 ## 👥 Tim Pengembang
 
 | Nama       | Bagian   |
